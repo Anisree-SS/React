@@ -1,0 +1,40 @@
+body{
+  margin: 0;
+  padding: 0;
+  
+}
+.gap{
+  padding-right: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
+  width:750px;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.item1 {
+  grid-column-start: 2;
+  grid-column-end: 5;
+
+
+}
+.item2{
+	grid-column-start: 5;
+  grid-column-end: 7;
+}
+
+.buttonStyle{
+  border: none;
+  background:transparent;
+}
+
+input{
+  cursor: pointer;
+}
