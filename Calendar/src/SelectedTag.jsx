@@ -16,22 +16,24 @@ function SelectTag(props) {
   ];
   return (
     <>
-      <select onChange={props.Selectfunction} name={props.names}>
-        {addindex != 0
-          ? Array.from({ length: props.len }).map((_, index) => (
-              <option
-                value={index + addindex}
-                selected={index + addindex == props.years}
-              >
-                {index + addindex}
-              </option>
-            ))
-          : months.map((mon, index) => (
-              <option value={index} selected={index == props.years}>
-                {mon}
-              </option>
-            ))}
-      </select>
+      <p>
+        <select onChange={props.Selectfunction} name={props.names}>
+          {addindex != 0
+            ? Array.from({ length: props.len }).map((_, index) => (
+                <option
+                  value={index + addindex}
+                  selected={index + addindex == props.years}
+                >
+                  {index + addindex}
+                </option>
+              ))
+            : months.map((mon, index) => (
+                <option value={index} selected={index == props.years}>
+                  {mon}
+                </option>
+              ))}
+        </select>
+      </p>
     </>
   );
 }

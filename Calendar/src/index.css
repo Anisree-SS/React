@@ -1,5 +1,5 @@
 body{
-  margin: 0;
+  margin: 15px;
   padding: 0;
   
 }
@@ -9,14 +9,14 @@ body{
 
 .grid-container {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-columns: 60px 60px 60px 60px 60px 60px 60px;
   width:750px;
 }
 
 .grid-container > div {
   text-align: center;
-  padding: 20px 0;
   cursor: pointer;
+  height: 50px;
 }
 
 .item1 {
@@ -30,6 +30,7 @@ body{
   grid-column-end: 7;
 }
 
+
 .buttonStyle{
   border: none;
   background:transparent;
@@ -37,4 +38,7 @@ body{
 
 input{
   cursor: pointer;
+  height: 50px;
+  width: 50px;
 }
+
