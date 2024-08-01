@@ -4,7 +4,7 @@ function Weeks() {
     <>
       {days.map((day, index) => (
         <div key={index} className="gap">
-          {day}
+          <p>{day}</p>
         </div>
       ))}
     </>

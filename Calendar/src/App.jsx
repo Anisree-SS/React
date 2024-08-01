@@ -6,7 +6,7 @@ import Days from "./Days";
 
 function App() {
   const [today, setToday] = useState(new Date());
-  console.log(today);
+ 
   const [newDate, setNewDate] = useState({
     selectMonth: today.getMonth(),
     selectyr: today.getFullYear(),
@@ -18,7 +18,7 @@ function App() {
   const year = today.getFullYear();
   const daysinMon = getDaysInMonth(today);
 
-  /* useEffect(()=>{
+  useEffect(() => {
     setToday(
       new Date(
         newDate.selectyr,
@@ -28,8 +28,10 @@ function App() {
           : newDate.selectedDate
       )
     );
-  },[today]) */
-
+    return()=>{today};
+  }, [today]);
+ 
+ 
   function monthSelect(event) {
     const { name, value } = event.target;
     console.log(newDate);
@@ -47,10 +49,6 @@ function App() {
 
   function setNewDates(day) {
     console.log(day);
-    const dayMonth = day.getMonth();
-    const dayYr = day.getFullYear();
-    const dayDate = day.getDate();
-    console.log(dayMonth + " " + dayYr + " " + dayDate);
     setNewDate({
       selectMonth: day.getMonth(),
       selectyr: day.getFullYear(),
@@ -64,13 +62,13 @@ function App() {
   const prevDay = startOfMonth(today).getDay();
   const [updateMonth, setupdateMonth] = useState(today);
 
-  function updatePrevMonth() {
+  function updatePrevMonth(ss) {
+    console.log(ss);
     setupdateMonth(subMonths(today, 1));
     setNewDates(updateMonth);
   }
 
   function updatePostMonth() {
-    console.log(today);
     setupdateMonth(addMonths(today, 1));
     setNewDates(updateMonth);
   }
@@ -82,8 +80,8 @@ function App() {
   return (
     <>
       <div className="grid-container">
-        <div onClick={updatePrevMonth} className="buttonStyle">
-          &lt;
+        <div onClick={()=>{updatePrevMonth(11)} } className="buttonStyle">
+         <p> &lt;</p>
         </div>
         <div className="item1">
           <SelectTag
@@ -102,7 +100,7 @@ function App() {
           />
         </div>
         <div onClick={updatePostMonth} className="buttonStyle">
-          &gt;
+          <p>&gt;</p>
         </div>
         <Weeks />
         <Days dayLen={prevDay} />
