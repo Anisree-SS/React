@@ -6,6 +6,7 @@ import Days from "./Days";
 
 function App() {
   const [today, setToday] = useState(new Date());
+  console.log(today);
   const [newDate, setNewDate] = useState({
     selectMonth: today.getMonth(),
     selectyr: today.getFullYear(),
@@ -17,7 +18,7 @@ function App() {
   const year = today.getFullYear();
   const daysinMon = getDaysInMonth(today);
 
-  useEffect(()=>{
+  /* useEffect(()=>{
     setToday(
       new Date(
         newDate.selectyr,
@@ -27,11 +28,11 @@ function App() {
           : newDate.selectedDate
       )
     );
-    console.log(today);
-  },[today])
+  },[today]) */
 
   function monthSelect(event) {
     const { name, value } = event.target;
+    console.log(newDate);
     setNewDate((prevDate) => ({ ...prevDate, [name]: value }));
     setToday(
       new Date(
@@ -46,6 +47,10 @@ function App() {
 
   function setNewDates(day) {
     console.log(day);
+    const dayMonth = day.getMonth();
+    const dayYr = day.getFullYear();
+    const dayDate = day.getDate();
+    console.log(dayMonth + " " + dayYr + " " + dayDate);
     setNewDate({
       selectMonth: day.getMonth(),
       selectyr: day.getFullYear(),
@@ -65,6 +70,7 @@ function App() {
   }
 
   function updatePostMonth() {
+    console.log(today);
     setupdateMonth(addMonths(today, 1));
     setNewDates(updateMonth);
   }

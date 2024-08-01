@@ -12,7 +12,7 @@ function SelectTag(props) {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   return (
     <>
