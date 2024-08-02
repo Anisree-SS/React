@@ -1,0 +1,14 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+.board-row{
+  width: 150px;
+  height: auto;
+}
+
+.squareStyle{
+  width: 25px;
+  height: 25px;
+}

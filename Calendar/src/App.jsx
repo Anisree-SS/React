@@ -6,7 +6,6 @@ import Days from "./Days";
 
 function App() {
   const [today, setToday] = useState(new Date());
- 
   const [newDate, setNewDate] = useState({
     selectMonth: today.getMonth(),
     selectyr: today.getFullYear(),
@@ -28,27 +27,24 @@ function App() {
           : newDate.selectedDate
       )
     );
-    return()=>{today};
+    return () => {
+      today;
+    };
   }, [today]);
- 
- 
+
   function monthSelect(event) {
     const { name, value } = event.target;
-    console.log(newDate);
     setNewDate((prevDate) => ({ ...prevDate, [name]: value }));
     setToday(
       new Date(
         newDate.selectyr,
         newDate.selectMonth,
-        newDate.selectMonth == 1 && newDate.selectedDate > 29
-          ? 28
-          : newDate.selectedDate
+        newDate.selectedDate
       )
     );
   }
 
   function setNewDates(day) {
-    console.log(day);
     setNewDate({
       selectMonth: day.getMonth(),
       selectyr: day.getFullYear(),
@@ -60,17 +56,9 @@ function App() {
   }
 
   const prevDay = startOfMonth(today).getDay();
-  const [updateMonth, setupdateMonth] = useState(today);
-
-  function updatePrevMonth(ss) {
-    console.log(ss);
-    setupdateMonth(subMonths(today, 1));
-    setNewDates(updateMonth);
-  }
-
-  function updatePostMonth() {
-    setupdateMonth(addMonths(today, 1));
-    setNewDates(updateMonth);
+  function updatePrevMonth(values) {
+    const updates = values ? subMonths(today, 1) : addMonths(today, 1);
+    setNewDates(updates);
   }
 
   function selectDate(event) {
@@ -80,8 +68,13 @@ function App() {
   return (
     <>
       <div className="grid-container">
-        <div onClick={()=>{updatePrevMonth(11)} } className="buttonStyle">
-         <p> &lt;</p>
+        <div
+          onClick={() => {
+            updatePrevMonth(true);
+          }}
+          className="buttonStyle"
+        >
+          <p> &lt;</p>
         </div>
         <div className="item1">
           <SelectTag
@@ -99,7 +92,12 @@ function App() {
             len="100"
           />
         </div>
-        <div onClick={updatePostMonth} className="buttonStyle">
+        <div
+          onClick={() => {
+            updatePrevMonth(false);
+          }}
+          className="buttonStyle"
+        >
           <p>&gt;</p>
         </div>
         <Weeks />
