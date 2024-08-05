@@ -10,7 +10,8 @@ body{
 .grid-container {
   display: grid;
   grid-template-columns: 60px 60px 60px 60px 60px 60px 60px;
-  width:750px;
+  width:420px;
+  background: #99929224;
 }
 
 .grid-container > div {
@@ -42,3 +43,17 @@ input{
   width: 50px;
 }
 
+select{
+  outline: none;
+  border: none;
+  background:#ebe8e85e;
+  width:100px
+}
+
+.calendar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 420px;
+  background:#ebe8e8;
+}
