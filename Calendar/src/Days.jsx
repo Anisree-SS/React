@@ -3,7 +3,6 @@ function Days(props) {
   const [isColor, setBgColor] = useState({ backgroundColor: "", keys: "" });
   function setstyles(event) {
     const names = event.target.id;
-    console.log(names);
     setBgColor({
       backgroundColor: "aliceblue",
       keys: names,
