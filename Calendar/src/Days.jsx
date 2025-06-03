@@ -3,7 +3,6 @@ function Days(props) {
   const [isColor, setBgColor] = useState({ backgroundColor: "", keys: "" });
   function setstyles(event) {
     const names = event.target.id;
-    console.log(names);
     setBgColor({
       backgroundColor: "aliceblue",
       keys: names,
@@ -24,7 +23,7 @@ function Days(props) {
               style={{
                 backgroundColor:
                   isDay && isColor.keys == index ? isColor.backgroundColor : "",
-                color: index + 1 == props.date ? "red" : "black",
+                color: (index + 1 == props.date) ? "red" : "black" ,
               }}
             />
           ) : (
